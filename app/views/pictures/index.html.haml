@@ -1,6 +1,12 @@
 - if @pictures.any?
   - @pictures.each do |picture|
     %h2= link_to picture.caption, picture_path(picture)
+    %h3
+      Comments
+    - picture.comments.each do |comment|
+      %ul
+        %b
+        = comment.comment
 - else
   No pictures yet
 

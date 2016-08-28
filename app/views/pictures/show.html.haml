@@ -1,4 +1,11 @@
 %p= @picture.caption
+%h3
+  Comments
+- @picture.comments.each do |comment|
+  %ul
+    %b
+    = comment.comment
 
 %h3= link_to "Edit", edit_picture_path(@picture)
 %h3= link_to "Delete", picture_path(@picture), method: :delete
+%h3= link_to "Comment", new_picture_comment_path(@picture)

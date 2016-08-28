@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'pictures' do
+feature 'Pictures' do
   context 'no pictures have been added' do
     scenario 'should display a prompt to add a picture' do
       visit '/pictures'
