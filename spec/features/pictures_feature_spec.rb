@@ -57,4 +57,16 @@ feature 'pictures' do
      expect(current_path).to eq '/pictures'
     end
   end
+
+  context 'deleting pictures' do
+    before { Picture.create caption: 'Ethereal haze over Machu Picchu' }
+
+    scenario 'removes a picture when a user clicks a delete link' do
+      visit '/pictures'
+      click_link 'Ethereal haze over Machu Picchu'
+      click_link 'Delete'
+      expect(page).not_to have_content 'Ethereal haze over Machu Picchu'
+      expect(page).to have_content 'Picture deleted successfully'
+    end
+  end
 end
